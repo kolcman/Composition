@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Composition</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome_logo">Welcome logo</string>
+    <string name="tv_name_text">Состав числа</string>
+    <string name="tv_rules_text">Правила игры: Перед Вами будет 3 фигуры,одна сверху, две снизу, в двух из них будут числа.\nНеобходимо, чтобы сумма из двух нижних фигур, была равна числу в верхней фигуре, для этого нужно вставить недостоющее число.</string>
+    <string name="tv_example_text">Пример: В верхнем круге число 7, в одном из нижних знак вопроса, а в другом число 4 \nЗначит на месте вопросительного знака, должно быть число 3 (7 = 4 + 3).</string>
+    <string name="button_start_text">Понятно</string>
+    <string name="change_level_text">Выберите уровень сложности:</string>
+    <string name="button_test">Тестовый</string>
+    <string name="button_easy">Легкий</string>
+    <string name="button_normal">Средний</string>
+    <string name="button_hard">Сложный</string>
 </resources>
