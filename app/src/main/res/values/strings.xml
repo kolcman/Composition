@@ -12,4 +12,11 @@
     <string name="button_easy">Легкий</string>
     <string name="button_normal">Средний</string>
     <string name="button_hard">Сложный</string>
+    <string name="progress_answers">Правильных ответов: %s(минимум %s)</string>
+    <string name="game_over">Game Over</string>
+    <string name="tv_required_right_answer">Необходимое колличество правильных ответов: %s</string>
+    <string name="tv_your_score">Ваш счет: %s</string>
+    <string name="tv_min_required_percent">Минимальный процент правильных ответов: %s</string>
+    <string name="tv_your_percent">Ваш процент: %s</string>
+    <string name="button_try_again">Попробовать снова</string>
 </resources>
