@@ -35,15 +35,57 @@ class GameFinishFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupClickListeners()
+        bindViews()
+    }
+
+    private fun setupClickListeners() {
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 retryGame()
             }
         }
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback )
-
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
         binding.buttonTryAgain.setOnClickListener {
             retryGame()
+        }
+    }
+
+    private fun bindViews() {
+        with(binding) {
+            imageResult.setImageResource(getSmileResId())
+            tvRequiredAnswers.text = String.format(
+                getString(R.string.tv_required_right_answer),
+                gameResult.gameSettings.minCountOfRightAnswers
+            )
+            tvScoreAnswers.text = String.format(
+                getString(R.string.tv_your_score),
+                gameResult.countOfRightAnswers
+            )
+            tvMinRequiredPercent.text = String.format(
+                getString(R.string.tv_min_required_percent),
+                gameResult.gameSettings.minPercentOfRightAnswers
+            )
+            tvYourPercent.text = String.format(
+                getString(R.string.tv_your_percent),
+                getRecentOfRightAnswers()
+            )
+        }
+    }
+
+    private fun getSmileResId(): Int {
+        return if (gameResult.winner) {
+            R.drawable.smile
+        } else {
+            R.drawable.frowning_smiley
+        }
+    }
+
+    private fun getRecentOfRightAnswers() = with(gameResult) {
+        if (countOfQuestions == 0) {
+            0
+        } else {
+            (countOfRightAnswers / countOfQuestions.toDouble() * 100).toInt()
         }
     }
 
@@ -51,7 +93,7 @@ class GameFinishFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-    
+
     private fun parseArgs() {
         requireArguments().getParcelable<GameResult>(KEY_GAME_RESULT)?.let {
             gameResult = it
